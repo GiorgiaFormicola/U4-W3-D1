@@ -8,8 +8,13 @@ WHERE name = 'Mario'
 SELECT name, surname FROM customers 
 WHERE birth_year = 1982
 
-> EXERCISE 3 - Estrarre il numero delle fatture con iva al 20% (quante sono?)
+> EXERCISE 3 - Estrarre il numero delle fatture con iva al 20%
 
 SELECT COUNT(iva) as invoices_at_20 FROM invoices 
 WHERE iva = 20
 
+> EXERCISE 4 - Estrarre i prodotti attivati nel 2017 e che sono in produzione oppure in commercio
+
+SELECT * FROM products
+WHERE EXTRACT(YEAR FROM activation_date) = 2017 
+AND (in_production = true OR on_market = true)
