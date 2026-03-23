@@ -1,0 +1,4 @@
+> EXERCISE 1 - Estrai tutti i clienti con nome Mario
+
+SELECT * FROM customers 
+WHERE name = 'Mario'
