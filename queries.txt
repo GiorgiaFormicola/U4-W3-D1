@@ -7,3 +7,9 @@ WHERE name = 'Mario'
 
 SELECT name, surname FROM customers 
 WHERE birth_year = 1982
+
+> EXERCISE 3 - Estrarre il numero delle fatture con iva al 20% (quante sono?)
+
+SELECT COUNT(iva) as invoices_at_20 FROM invoices 
+WHERE iva = 20
+
