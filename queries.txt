@@ -19,7 +19,7 @@ SELECT * FROM products
 WHERE EXTRACT(YEAR FROM activation_date) = 2017 
 AND (in_production = true OR on_market = true)
 
-> EXERCISE 5 -Estrarre le fatture con importo inferiore a 1000 e i dati dei clienti ad esse collegate
+> EXERCISE 5 - Estrarre le fatture con importo inferiore a 1000 e i dati dei clienti ad esse collegate
 
 SELECT i.*, 
 c.name AS customer_name, 
@@ -30,3 +30,12 @@ FROM invoices as i
 JOIN customers as c on i.customer_id = c.customer_number
 WHERE amount < 1000
 
+> EXERCISE 6 - Riportare l'elenco delle fatture (numero, importo, iva e data) con in aggiunta il nome del fornitore
+
+SELECT 
+i.invoice_number,
+i.amount,
+i.iva,
+s.name AS supplier
+FROM invoices as i
+JOIN suppliers as s on i.supplier_number = s.supplier_number
