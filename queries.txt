@@ -45,3 +45,11 @@ JOIN suppliers as s on i.supplier_number = s.supplier_number
 SELECT EXTRACT(YEAR FROM invoice_date) as year, COUNT(*) as invoices_at_20 FROM invoices
 WHERE iva = 20
 GROUP BY EXTRACT(YEAR FROM invoice_date)
+
+> EXERCISE 8 - Riportare il numero di fatture (conteggio fatture) e la somma dei relativi importi divisi per anno di fatturazione
+
+SELECT EXTRACT(YEAR FROM invoice_date) as year, 
+COUNT(*) as invoices_per_year,
+SUM(invoices.amount) as total_amount_per_year
+FROM invoices
+GROUP BY EXTRACT(YEAR FROM invoice_date)
