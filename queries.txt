@@ -2,3 +2,8 @@
 
 SELECT * FROM customers 
 WHERE name = 'Mario'
+
+> EXERCISE 2 - Estrarre il nome e cognome dei clienti nati nel 1982
+
+SELECT name, surname FROM customers 
+WHERE birth_year = 1982
