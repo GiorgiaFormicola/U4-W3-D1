@@ -68,3 +68,10 @@ SELECT c.residence_region as region,
 SUM(amount) as invoices_total_amount_per_region FROM invoices as i 
 JOIN customers as c on i.customer_id = c.customer_number
 GROUP BY c.residence_region
+
+> EXERCISE 11 _ Estrarre il numero dei clienti nati nel 1980 che hanno almeno una fattura superiore a  50 euro
+
+SELECT COUNT(DISTINCT c) as customers_born_in_1980_with_invoice_amount_greater_than_50
+FROM customers as c 
+JOIN invoices as i on c.customer_number = i.customer_id
+WHERE c.birth_year = 1980 AND i.amount > 50
