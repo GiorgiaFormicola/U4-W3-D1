@@ -61,3 +61,10 @@ COUNT(*) as invoices_per_year FROM invoices
 WHERE type = 'A'
 GROUP BY EXTRACT(YEAR FROM invoice_date)
 HAVING COUNT(*) > 2
+
+> EXERCISE 10 - Estrarre il totale degli importi delle fatture divisi per residenza dei clienti
+
+SELECT c.residence_region as region, 
+SUM(amount) as invoices_total_amount_per_region FROM invoices as i 
+JOIN customers as c on i.customer_id = c.customer_number
+GROUP BY c.residence_region
