@@ -10,7 +10,7 @@ WHERE birth_year = 1982
 
 > EXERCISE 3 - Estrarre il numero delle fatture con iva al 20%
 
-SELECT COUNT(iva) as invoices_at_20 FROM invoices 
+SELECT COUNT(*) as invoices_at_20 FROM invoices 
 WHERE iva = 20
 
 > EXERCISE 4 - Estrarre i prodotti attivati nel 2017 e che sono in produzione oppure in commercio
@@ -39,3 +39,9 @@ i.iva,
 s.name AS supplier
 FROM invoices as i
 JOIN suppliers as s on i.supplier_number = s.supplier_number
+
+> EXERCISE 7 - Considerando soltanto le fatture con iva al 20 per cento, estrarre il numero di fatture (conteggio fatture) per ogni anno
+
+SELECT EXTRACT(YEAR FROM invoice_date) as year, COUNT(*) as invoices_at_20 FROM invoices
+WHERE iva = 20
+GROUP BY EXTRACT(YEAR FROM invoice_date)
