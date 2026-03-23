@@ -18,3 +18,15 @@ WHERE iva = 20
 SELECT * FROM products
 WHERE EXTRACT(YEAR FROM activation_date) = 2017 
 AND (in_production = true OR on_market = true)
+
+> EXERCISE 5 -Estrarre le fatture con importo inferiore a 1000 e i dati dei clienti ad esse collegate
+
+SELECT i.*, 
+c.name AS customer_name, 
+c.surname AS customer_surname,
+c.birth_year AS customer_birth_year,
+c.residence_region AS customer_residence_region
+FROM invoices as i
+JOIN customers as c on i.customer_id = c.customer_number
+WHERE amount < 1000
+
