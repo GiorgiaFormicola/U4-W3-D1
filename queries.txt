@@ -53,3 +53,11 @@ COUNT(*) as invoices_per_year,
 SUM(invoices.amount) as total_amount_per_year
 FROM invoices
 GROUP BY EXTRACT(YEAR FROM invoice_date)
+
+> EXERCISE 9 - Estrarre gli anni in cui sono state registrate più di 2 fatture con tipologia 'A'
+
+SELECT EXTRACT(YEAR FROM invoice_date) as year, 
+COUNT(*) as invoices_per_year FROM invoices
+WHERE type = 'A'
+GROUP BY EXTRACT(YEAR FROM invoice_date)
+HAVING COUNT(*) > 2
